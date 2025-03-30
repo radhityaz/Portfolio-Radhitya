@@ -1,13 +1,20 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { motion } from 'framer-motion';
+import { FiBookOpen, FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi';
 
 const TimelineSection: React.FC = () => {
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+  
   return (
-    <section id="timeline" className="py-20 bg-black">
-      <div className="container mx-auto px-4">
+    <section id="timeline" className="section-padding bg-dark-light relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-0 right-0 w-1/4 h-1/4 bg-secondary/5 rounded-full blur-3xl -z-10"></div>
+      
+      <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -15,99 +22,145 @@ const TimelineSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+          <h2 className="heading-gradient mb-4">
             <FormattedMessage id="timeline.title" />
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Education */}
           <motion.div
             className="relative"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
+            onMouseEnter={() => setActiveCard('education')}
+            onMouseLeave={() => setActiveCard(null)}
           >
-            <div className="backdrop-blur-md bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10 shadow-xl h-full">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14v7" />
-                  </svg>
+            <motion.div 
+              className="glass-navy p-8 rounded-2xl shadow-glow h-full"
+              animate={{ 
+                boxShadow: activeCard === 'education' 
+                  ? '0 0 25px rgba(42, 75, 126, 0.4)' 
+                  : '0 0 15px rgba(0, 0, 0, 0.3)'
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex items-center mb-8">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-r from-primary to-primary-light flex items-center justify-center text-white text-xl shadow-glow">
+                  <FiBookOpen className="w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-bold ml-4 text-white">
                   <FormattedMessage id="timeline.education" />
                 </h3>
               </div>
               
-              <div className="pl-4 border-l-2 border-purple-500">
+              <div className="pl-6 border-l-2 border-primary">
                 <div className="mb-8 relative">
-                  <div className="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
+                  <div className="absolute -left-[21px] top-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-glow">
                     <div className="w-3 h-3 bg-white rounded-full"></div>
                   </div>
                   
-                  <h4 className="text-xl font-semibold text-white">
+                  <h4 className="text-xl font-semibold text-white mb-2">
                     <FormattedMessage id="timeline.education.school" />
                   </h4>
-                  <p className="text-purple-300 mb-2">
-                    <FormattedMessage id="timeline.education.degree" />
-                  </p>
-                  <p className="text-white/60 mb-4">
+                  
+                  <div className="flex items-center text-primary-light mb-2">
+                    <FiMapPin className="mr-2" />
+                    <span>Bandung, Indonesia</span>
+                  </div>
+                  
+                  <div className="flex items-center text-secondary mb-4">
+                    <FiCalendar className="mr-2" />
                     <FormattedMessage id="timeline.education.year" />
-                  </p>
-                  <p className="text-white/80">
-                    <FormattedMessage id="timeline.education.description" />
-                  </p>
+                  </div>
+                  
+                  <div className="glass-effect p-4 rounded-lg mb-4">
+                    <p className="text-white font-medium mb-2">
+                      <FormattedMessage id="timeline.education.degree" />
+                    </p>
+                    <p className="text-white/80">
+                      <FormattedMessage id="timeline.education.description" />
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <span className="px-3 py-1 rounded-full text-sm bg-primary/20 text-white">Industrial Engineering</span>
+                    <span className="px-3 py-1 rounded-full text-sm bg-primary/20 text-white">Data Analysis</span>
+                    <span className="px-3 py-1 rounded-full text-sm bg-primary/20 text-white">Production Planning</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
           
           {/* Work Experience */}
           <motion.div
             className="relative"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
+            onMouseEnter={() => setActiveCard('experience')}
+            onMouseLeave={() => setActiveCard(null)}
           >
-            <div className="backdrop-blur-md bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10 shadow-xl h-full">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-white text-xl">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+            <motion.div 
+              className="glass-navy p-8 rounded-2xl shadow-glow h-full"
+              animate={{ 
+                boxShadow: activeCard === 'experience' 
+                  ? '0 0 25px rgba(42, 75, 126, 0.4)' 
+                  : '0 0 15px rgba(0, 0, 0, 0.3)'
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex items-center mb-8">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-r from-secondary to-secondary-light flex items-center justify-center text-dark text-xl shadow-glow">
+                  <FiBriefcase className="w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-bold ml-4 text-white">
                   <FormattedMessage id="timeline.experience" />
                 </h3>
               </div>
               
-              <div className="pl-4 border-l-2 border-pink-500">
+              <div className="pl-6 border-l-2 border-secondary">
                 <div className="mb-8 relative">
-                  <div className="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center">
-                    <div className="w-3 h-3 bg-white rounded-full"></div>
+                  <div className="absolute -left-[21px] top-0 w-10 h-10 rounded-full bg-secondary flex items-center justify-center shadow-glow">
+                    <div className="w-3 h-3 bg-dark rounded-full"></div>
                   </div>
                   
-                  <h4 className="text-xl font-semibold text-white">
+                  <h4 className="text-xl font-semibold text-white mb-2">
                     <FormattedMessage id="timeline.experience.company" />
                   </h4>
-                  <p className="text-pink-300 mb-2">
-                    <FormattedMessage id="timeline.experience.position" />
-                  </p>
-                  <p className="text-white/60 mb-4">
+                  
+                  <div className="flex items-center text-secondary mb-2">
+                    <FiMapPin className="mr-2" />
+                    <span>South Tangerang, Indonesia</span>
+                  </div>
+                  
+                  <div className="flex items-center text-primary-light mb-4">
+                    <FiCalendar className="mr-2" />
                     <FormattedMessage id="timeline.experience.year" />
-                  </p>
-                  <p className="text-white/80">
-                    <FormattedMessage id="timeline.experience.description" />
-                  </p>
+                  </div>
+                  
+                  <div className="glass-effect p-4 rounded-lg mb-4">
+                    <p className="text-white font-medium mb-2">
+                      <FormattedMessage id="timeline.experience.position" />
+                    </p>
+                    <p className="text-white/80">
+                      <FormattedMessage id="timeline.experience.description" />
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <span className="px-3 py-1 rounded-full text-sm bg-secondary/20 text-white">Inventory Management</span>
+                    <span className="px-3 py-1 rounded-full text-sm bg-secondary/20 text-white">Logistics</span>
+                    <span className="px-3 py-1 rounded-full text-sm bg-secondary/20 text-white">Team Collaboration</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

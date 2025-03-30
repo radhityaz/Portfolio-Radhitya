@@ -1,18 +1,36 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { motion } from 'framer-motion';
+import { FiCode, FiPackage, FiDatabase, FiZap } from 'react-icons/fi';
 
-// Define skills
+// Define skills with proficiency levels
 const skills = {
-  programming: ['Python', 'JavaScript', 'TypeScript', 'SQL'],
-  frameworks: ['React', 'Next.js', 'Microsoft Excel'],
-  databases: ['SQL', 'Excel Data Management'],
-  other: ['Web Development', 'Data Analysis'],
+  programming: [
+    { name: 'Python', level: 85 },
+    { name: 'JavaScript', level: 80 },
+    { name: 'TypeScript', level: 75 },
+    { name: 'SQL', level: 70 },
+  ],
+  frameworks: [
+    { name: 'React', level: 80 },
+    { name: 'Next.js', level: 75 },
+    { name: 'Microsoft Excel', level: 90 },
+  ],
+  databases: [
+    { name: 'SQL', level: 70 },
+    { name: 'Excel Data Management', level: 85 },
+  ],
+  other: [
+    { name: 'Web Development', level: 75 },
+    { name: 'Data Analysis', level: 80 },
+  ],
 };
 
 const SkillsSection: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -29,8 +47,12 @@ const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-black to-gray-900">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="section-padding bg-dark relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-secondary/5 rounded-full blur-3xl -z-10"></div>
+      
+      <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -38,163 +60,254 @@ const SkillsSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+          <h2 className="heading-gradient mb-4">
             <FormattedMessage id="skills.title" />
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+          <p className="text-white/70 mt-6 max-w-2xl mx-auto">
+            <FormattedMessage id="skills.subtitle" defaultMessage="A collection of technologies and tools I've worked with" />
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Programming Languages */}
           <motion.div
-            className="backdrop-blur-md bg-white/5 p-6 rounded-2xl border border-white/10 shadow-xl"
-            initial={{ opacity: 0, y: 20 }}
+            className="relative"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true, margin: "-100px" }}
+            onMouseEnter={() => setActiveCategory('programming')}
+            onMouseLeave={() => setActiveCategory(null)}
           >
-            <div className="flex items-center mb-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold ml-3 text-white">
-                <FormattedMessage id="skills.programming" />
-              </h3>
-            </div>
-            <motion.ul
-              className="space-y-2"
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-100px" }}
+            <motion.div 
+              className="glass-navy p-8 rounded-2xl h-full"
+              animate={{ 
+                boxShadow: activeCategory === 'programming' 
+                  ? '0 0 25px rgba(42, 75, 126, 0.4)' 
+                  : '0 0 15px rgba(0, 0, 0, 0.3)'
+              }}
+              transition={{ duration: 0.3 }}
             >
-              {skills.programming.map((skill, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-center text-white/80"
-                  variants={item}
-                >
-                  <div className="w-2 h-2 rounded-full bg-purple-500 mr-3"></div>
-                  {skill}
-                </motion.li>
-              ))}
-            </motion.ul>
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-primary-light flex items-center justify-center text-white shadow-glow">
+                  <FiCode className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold ml-4 text-white">
+                  <FormattedMessage id="skills.programming" />
+                </h3>
+              </div>
+              
+              <motion.div
+                className="space-y-4"
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                {skills.programming.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    className="relative"
+                    variants={item}
+                  >
+                    <div className="flex justify-between mb-1">
+                      <span className="text-white font-medium">{skill.name}</span>
+                      <span className="text-primary-light">{skill.level}%</span>
+                    </div>
+                    <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                      <motion.div 
+                        className="h-full bg-gradient-to-r from-primary to-primary-light rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        transition={{ duration: 1, delay: 0.3 + (index * 0.1) }}
+                        viewport={{ once: true }}
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           {/* Frameworks & Tools */}
           <motion.div
-            className="backdrop-blur-md bg-white/5 p-6 rounded-2xl border border-white/10 shadow-xl"
-            initial={{ opacity: 0, y: 20 }}
+            className="relative"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true, margin: "-100px" }}
+            onMouseEnter={() => setActiveCategory('frameworks')}
+            onMouseLeave={() => setActiveCategory(null)}
           >
-            <div className="flex items-center mb-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold ml-3 text-white">
-                <FormattedMessage id="skills.frameworks" />
-              </h3>
-            </div>
-            <motion.ul
-              className="space-y-2"
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-100px" }}
+            <motion.div 
+              className="glass-navy p-8 rounded-2xl h-full"
+              animate={{ 
+                boxShadow: activeCategory === 'frameworks' 
+                  ? '0 0 25px rgba(42, 75, 126, 0.4)' 
+                  : '0 0 15px rgba(0, 0, 0, 0.3)'
+              }}
+              transition={{ duration: 0.3 }}
             >
-              {skills.frameworks.map((skill, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-center text-white/80"
-                  variants={item}
-                >
-                  <div className="w-2 h-2 rounded-full bg-pink-500 mr-3"></div>
-                  {skill}
-                </motion.li>
-              ))}
-            </motion.ul>
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-secondary to-secondary-light flex items-center justify-center text-dark shadow-glow">
+                  <FiPackage className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold ml-4 text-white">
+                  <FormattedMessage id="skills.frameworks" />
+                </h3>
+              </div>
+              
+              <motion.div
+                className="space-y-4"
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                {skills.frameworks.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    className="relative"
+                    variants={item}
+                  >
+                    <div className="flex justify-between mb-1">
+                      <span className="text-white font-medium">{skill.name}</span>
+                      <span className="text-secondary">{skill.level}%</span>
+                    </div>
+                    <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                      <motion.div 
+                        className="h-full bg-gradient-to-r from-secondary to-secondary-light rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        transition={{ duration: 1, delay: 0.3 + (index * 0.1) }}
+                        viewport={{ once: true }}
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           {/* Databases & Systems */}
           <motion.div
-            className="backdrop-blur-md bg-white/5 p-6 rounded-2xl border border-white/10 shadow-xl"
-            initial={{ opacity: 0, y: 20 }}
+            className="relative"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
+            onMouseEnter={() => setActiveCategory('databases')}
+            onMouseLeave={() => setActiveCategory(null)}
           >
-            <div className="flex items-center mb-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold ml-3 text-white">
-                <FormattedMessage id="skills.databases" />
-              </h3>
-            </div>
-            <motion.ul
-              className="space-y-2"
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-100px" }}
+            <motion.div 
+              className="glass-navy p-8 rounded-2xl h-full"
+              animate={{ 
+                boxShadow: activeCategory === 'databases' 
+                  ? '0 0 25px rgba(42, 75, 126, 0.4)' 
+                  : '0 0 15px rgba(0, 0, 0, 0.3)'
+              }}
+              transition={{ duration: 0.3 }}
             >
-              {skills.databases.map((skill, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-center text-white/80"
-                  variants={item}
-                >
-                  <div className="w-2 h-2 rounded-full bg-purple-500 mr-3"></div>
-                  {skill}
-                </motion.li>
-              ))}
-            </motion.ul>
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-primary-light flex items-center justify-center text-white shadow-glow">
+                  <FiDatabase className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold ml-4 text-white">
+                  <FormattedMessage id="skills.databases" />
+                </h3>
+              </div>
+              
+              <motion.div
+                className="space-y-4"
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                {skills.databases.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    className="relative"
+                    variants={item}
+                  >
+                    <div className="flex justify-between mb-1">
+                      <span className="text-white font-medium">{skill.name}</span>
+                      <span className="text-primary-light">{skill.level}%</span>
+                    </div>
+                    <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                      <motion.div 
+                        className="h-full bg-gradient-to-r from-primary to-primary-light rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        transition={{ duration: 1, delay: 0.3 + (index * 0.1) }}
+                        viewport={{ once: true }}
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           {/* Other Skills */}
           <motion.div
-            className="backdrop-blur-md bg-white/5 p-6 rounded-2xl border border-white/10 shadow-xl"
-            initial={{ opacity: 0, y: 20 }}
+            className="relative"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true, margin: "-100px" }}
+            onMouseEnter={() => setActiveCategory('other')}
+            onMouseLeave={() => setActiveCategory(null)}
           >
-            <div className="flex items-center mb-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold ml-3 text-white">
-                <FormattedMessage id="skills.other" />
-              </h3>
-            </div>
-            <motion.ul
-              className="space-y-2"
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-100px" }}
+            <motion.div 
+              className="glass-navy p-8 rounded-2xl h-full"
+              animate={{ 
+                boxShadow: activeCategory === 'other' 
+                  ? '0 0 25px rgba(42, 75, 126, 0.4)' 
+                  : '0 0 15px rgba(0, 0, 0, 0.3)'
+              }}
+              transition={{ duration: 0.3 }}
             >
-              {skills.other.map((skill, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-center text-white/80"
-                  variants={item}
-                >
-                  <div className="w-2 h-2 rounded-full bg-pink-500 mr-3"></div>
-                  {skill}
-                </motion.li>
-              ))}
-            </motion.ul>
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-secondary to-secondary-light flex items-center justify-center text-dark shadow-glow">
+                  <FiZap className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold ml-4 text-white">
+                  <FormattedMessage id="skills.other" />
+                </h3>
+              </div>
+              
+              <motion.div
+                className="space-y-4"
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                {skills.other.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    className="relative"
+                    variants={item}
+                  >
+                    <div className="flex justify-between mb-1">
+                      <span className="text-white font-medium">{skill.name}</span>
+                      <span className="text-secondary">{skill.level}%</span>
+                    </div>
+                    <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                      <motion.div 
+                        className="h-full bg-gradient-to-r from-secondary to-secondary-light rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        transition={{ duration: 1, delay: 0.3 + (index * 0.1) }}
+                        viewport={{ once: true }}
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -13,14 +13,14 @@ const config: Config = {
       },
       colors: {
         primary: {
-          DEFAULT: '#9333ea', // Purple
-          light: '#a855f7',
-          dark: '#7e22ce',
+          DEFAULT: '#2A4B7E', // Navy Blue
+          light: '#3A6BA6',
+          dark: '#1A2F4B',
         },
         secondary: {
-          DEFAULT: '#ec4899', // Pink
-          light: '#f472b6',
-          dark: '#db2777',
+          DEFAULT: '#FFD700', // Gold
+          light: '#FFE44D',
+          dark: '#CCAC00',
         },
         dark: {
           DEFAULT: '#0f0f0f',
@@ -44,8 +44,10 @@ const config: Config = {
         },
       },
       boxShadow: {
-        'glow': '0 0 15px rgba(236, 72, 153, 0.5)',
-        'glow-lg': '0 0 25px rgba(236, 72, 153, 0.5)',
+        'glow': '0 0 15px rgba(42, 75, 126, 0.5)',
+        'glow-lg': '0 0 25px rgba(42, 75, 126, 0.5)',
+        'gold': '0 0 15px rgba(255, 215, 0, 0.5)',
+        'gold-lg': '0 0 25px rgba(255, 215, 0, 0.5)',
       },
       transitionDuration: {
         '2000': '2000ms',
