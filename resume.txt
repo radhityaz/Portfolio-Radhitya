@@ -1,0 +1,123 @@
+resume
+
+### *Versi Bahasa Indonesia*
+
+*Radhitya Guntoro Adhi*  
+Email: radhityaguntoroadhi@gmail.com  
+
+---
+
+### *Ringkasan Diri*  
+Halo! Saya Radhitya Guntoro Adhi, mahasiswa *Industrial Engineering* di *ITB, angkatan 2023. Saya percaya bahwa **supremasi sipil* dan *kebebasan individu* adalah nilai yang esensial dalam kehidupan berperadaban. Saat ini, saya sedang mengembangkan aplikasi *study planner & tracker berbasis AI* untuk membantu mahasiswa dalam mengelola waktu belajar dengan lebih efektif.  
+
+Selain itu, saya aktif mendiskusikan tren teknologi dan senang mengikuti perkembangan terbaru dalam dunia coding. Dalam jangka pendek, saya berfokus pada *peningkatan performa akademik, pembuatan **portofolio digital, dan mengasah kemampuan dalam **web development. Sebagai mahasiswa **Industrial Engineering, saya juga mendalami bidang **Production Planning and Control, **Operational Research*, dan penerapan teknologi dalam strategi bisnis.
+
+---
+
+### *Pendidikan*  
+*Institut Teknologi Bandung (ITB)*  
+*Program Studi: **Industrial Engineering*  
+*Angkatan*: 2023  
+*Perkiraan Lulus*: 2027 (4 tahun)  
+IPK: 2.46 (Saya terus berusaha meningkatkan performa akademik.)
+
+---
+
+### *Pengalaman Kerja*  
+*Pekerja Gudang*  
+*Lucky Bundle Warehouse* | Tangerang Selatan  
+*Deskripsi*:  
+- Bertanggung jawab atas penerimaan dan pengiriman barang, serta pengelolaan stok gudang.
+- Melakukan pengecekan rutin terhadap inventaris dan memastikan kelancaran distribusi barang.
+- Bekerja sebagai bagian dari tim untuk mendukung proses operasional yang efisien.
+
+---
+
+### *Keahlian Teknis*  
+- *Bahasa Pemrograman*: Python, JavaScript, TypeScript, SQL  
+- *Framework/Tools*: React, Next.js, Microsoft Excel  
+- *Database & Sistem*: SQL, pengelolaan data menggunakan Excel  
+- *Keterampilan Lain*: Pengembangan web, analisis data
+
+---
+
+### *Proyek*  
+*Aplikasi Manajemen Restoran (Tugas Kuliah)*  
+- Deskripsi: Mengembangkan aplikasi berbasis Python untuk mengelola operasional restoran, seperti pemesanan, pengelolaan stok, dan laporan keuangan.
+
+*Website Peduli Sungai Cirebon (Tugas Kuliah)*  
+- Deskripsi: Membangun website untuk organisasi yang bertujuan mengedukasi masyarakat tentang pentingnya menjaga kebersihan sungai di daerah Cirebon.
+
+---
+
+### *Kegiatan Ekstrakurikuler*  
+*Anggota Himpunan BSO Cirebon MTI (Keluarga Mahasiswa Teknik Industri)*  
+- Terlibat aktif dalam kegiatan organisasi yang berkaitan dengan pengembangan sosial dan akademik bagi mahasiswa Teknik Industri ITB.
+
+---
+
+### *Tujuan Karir*  
+Saya tertarik untuk mengeksplorasi dunia *data analyst* atau *data scientist, terutama dalam bidang **Production Planning and Control*. Dalam jangka panjang, saya berambisi untuk mengembangkan solusi berbasis data dan teknologi yang dapat meningkatkan efisiensi dan kinerja industri.
+
+---
+
+### *Versi English*
+
+*Radhitya Guntoro Adhi*  
+Email: radhityaguntoroadhi@gmail.com  
+
+---
+
+### *Summary*  
+Hi! I'm Radhitya Guntoro Adhi, an *Industrial Engineering* student at *ITB, class of 2023. I firmly believe that **civil supremacy* and *individual freedom* are essential values in any civilization. Currently, I am developing an *AI-based study planner & tracker app* to help students manage their study time more effectively.  
+
+In addition, I enjoy discussing technology trends and staying updated on the latest developments in coding. In the short term, I am focusing on *improving my academic performance, building a **digital portfolio, and enhancing my **web development* skills. As an *Industrial Engineering* student, I also have a keen interest in *Production Planning and Control, **Operational Research*, and the application of technology in business strategies.
+
+---
+
+### *Education*  
+*Institut Teknologi Bandung (ITB)*  
+*Major: **Industrial Engineering*  
+*Class of*: 2023  
+*Expected Graduation*: 2027 (4 years)  
+GPA: 2.46 (I am working hard to improve my academic performance.)
+
+---
+
+### *Work Experience*  
+*Warehouse Worker*  
+*Lucky Bundle Warehouse* | South Tangerang  
+*Description*:  
+- Responsible for receiving and shipping goods, as well as managing warehouse inventory.
+- Regularly checking inventory and ensuring smooth distribution processes.
+- Worked as part of a team to support efficient operational processes.
+
+---
+
+### *Technical Skills*  
+- *Programming Languages*: Python, JavaScript, TypeScript, SQL  
+- *Frameworks/Tools*: React, Next.js, Microsoft Excel  
+- *Databases & Systems*: SQL, data management with Excel  
+- *Other Skills*: Web development, data analysis
+
+---
+
+### *Projects*  
+*Restaurant Management Application (Course Project)*  
+- Description: Developed a Python-based application to manage restaurant operations, including ordering, inventory management, and financial reporting.
+
+*Cirebon River Care Website (Course Project)*  
+- Description: Built a website for an organization aimed at educating the public on the importance of maintaining the cleanliness of rivers in Cirebon.
+
+---
+
+### *Extracurricular Activities*  
+*Member of BSO Cirebon MTI (Industrial Engineering Student Family)*  
+- Actively involved in organizing social and academic events for Industrial Engineering students at ITB.
+
+---
+
+### *Career Goals*  
+I am interested in exploring fields like *data analysis* or *data science, particularly related to **Production Planning and Control*. Long-term, I aim to develop data-driven and technological solutions that can improve efficiency and performance in industries.
+
+---
