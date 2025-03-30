@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import React, { useState } from "react";
 
 // Enhanced Header Component with refined glassmorphism style
@@ -28,7 +29,7 @@ const HeroSection = ({ language }: { language: string }) => {
     <section
       id="hero"
       className="min-h-screen flex items-center justify-center relative bg-cover bg-center transition-all duration-1000 fadeIn"
-      style={{ backgroundImage: "url('/background-campus.png')", filter: "saturate(2.0) brightness(1.0)" }}
+      style={{ backgroundImage: `url('${import.meta.env.BASE_URL}background-campus.png')`, filter: "saturate(2.0) brightness(1.0)" }}
     >
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="relative z-10 text-center px-10 py-12 bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl slideUp">
@@ -85,10 +86,10 @@ const GallerySection = () => {
       <div className="container mx-auto px-6">
         <h3 className="text-5xl font-bold text-white mb-6 text-center">Gallery</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <img src="/background-campus.png" alt="Background Campus" className="w-full h-auto rounded-lg shadow-lg" />
-          <img src="/campus-life.png" alt="Campus Life" className="w-full h-auto rounded-lg shadow-lg" />
-          <img src="/me.png" alt="Me" className="w-full h-auto rounded-lg shadow-lg" />
-          <img src="/profile.png" alt="Profile" className="w-full h-auto rounded-lg shadow-lg" />
+          <img src={import.meta.env.BASE_URL + "background-campus.png"} alt="Background Campus" className="w-full h-auto rounded-lg shadow-lg" />
+          <img src={import.meta.env.BASE_URL + "campus-life.png"} alt="Campus Life" className="w-full h-auto rounded-lg shadow-lg" />
+          <img src={import.meta.env.BASE_URL + "me.png"} alt="Me" className="w-full h-auto rounded-lg shadow-lg" />
+          <img src={import.meta.env.BASE_URL + "profile.png"} alt="Profile" className="w-full h-auto rounded-lg shadow-lg" />
         </div>
       </div>
     </section>
