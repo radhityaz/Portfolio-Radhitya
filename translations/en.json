@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Radhitya Guntoro Adhi",
+    "title": "Industrial Engineering Student at ITB",
+    "description": "Passionate about data analysis, production planning, and web development. Currently developing an AI-based study planner & tracker app.",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me"
+  },
+  "footer": {
+    "subtitle": "Industrial Engineering Student at ITB",
+    "copyright": "© {year} Radhitya Guntoro Adhi. All rights reserved.",
+    "backToTop": "Back to top"
+  }
+}

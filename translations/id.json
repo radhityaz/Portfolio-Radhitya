@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "skills": "Keahlian",
+    "projects": "Proyek",
+    "experience": "Pengalaman",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "greeting": "Halo, saya Radhitya Guntoro Adhi",
+    "title": "Mahasiswa Teknik Industri ITB",
+    "description": "Bersemangat dalam analisis data, perencanaan produksi, dan pengembangan web. Saat ini sedang mengembangkan aplikasi perencana & pelacak studi berbasis AI.",
+    "viewProjects": "Lihat Proyek",
+    "contactMe": "Hubungi Saya"
+  },
+  "footer": {
+    "subtitle": "Mahasiswa Teknik Industri ITB",
+    "copyright": "© {year} Radhitya Guntoro Adhi. Hak cipta dilindungi undang-undang.",
+    "backToTop": "Kembali ke atas"
+  }
+}

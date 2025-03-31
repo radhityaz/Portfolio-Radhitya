@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#fff0f0" />
+  <g transform="translate(100, 50)">
+    <!-- Restaurant Awning -->
+    <path d="M0,50 L200,50 L180,100 L20,100 Z" fill="#ff9999" />
+    <path d="M20,100 L180,100 L180,200 L20,200 Z" fill="#ffeeee" />
+    <!-- Awning Stripes -->
+    <path d="M20,50 L40,50 L30,100 L20,100 Z" fill="#ffffff" />
+    <path d="M60,50 L80,50 L70,100 L60,100 Z" fill="#ffffff" />
+    <path d="M100,50 L120,50 L110,100 L100,100 Z" fill="#ffffff" />
+    <path d="M140,50 L160,50 L150,100 L140,100 Z" fill="#ffffff" />
+    <path d="M180,50 L200,50 L190,100 L180,100 Z" fill="#ffffff" />
+    <!-- Door -->
+    <rect x="80" y="130" width="40" height="70" fill="#cc6666" />
+    <circle cx="110" cy="165" r="3" fill="#ffcc99" />
+    <!-- Windows -->
+    <rect x="30" y="130" width="30" height="30" fill="#ccffff" />
+    <rect x="140" y="130" width="30" height="30" fill="#ccffff" />
+    <!-- Plants -->
+    <g transform="translate(40, 120)">
+      <path d="M0,0 C5,-5 10,-3 15,0 C20,-5 25,-3 30,0 L30,10 L0,10 Z" fill="#99cc99" />
+    </g>
+    <g transform="translate(150, 120)">
+      <path d="M0,0 C5,-5 10,-3 15,0 C20,-5 25,-3 30,0 L30,10 L0,10 Z" fill="#99cc99" />
+    </g>
+  </g>
+</svg>
